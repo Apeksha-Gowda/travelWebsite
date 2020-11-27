@@ -4,4 +4,8 @@ from .models import *
 class DestinationsFilter(django_filters.FilterSet):
     class Meta:
         model = Destinations
-        fields = '__all__'
+        fields = {
+            'name':['icontains'],
+        'country':['icontains'],
+        'rating':['icontains'],
+        }

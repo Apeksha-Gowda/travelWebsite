@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% extends "testApp1/base.html" %}
 {% block content %}
-{% for destination in destinations %}
 <div class="row">
     <div class="col">
         <div class="card card-body">
@@ -9,12 +8,11 @@
                 {{myFilter.form}}
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
-
         </div>
-
     </div>
 </div>
 <br>
+{% for destination in destinations %}
 <article class="media content-section">
     <div class="media-body">
         <div class="article-metadata">
