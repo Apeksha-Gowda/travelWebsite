@@ -13,3 +13,15 @@ def home(request):
         'myFilter' : myFilter
     }
     return render(request,'testApp1/home.html', context)
+
+def portfolio(request):
+    if request.method == 'GET':
+        destination_id = request.GET.get('destination_id')
+        values = Destinations.objects.get(id=destination_id)
+        
+    context = {
+        "values":values,
+    }
+   
+    return render(request,'testApp1/portfolio.html', context)
+
