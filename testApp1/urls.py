@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     path('', views.home, name='travel-home'),
     url(r'^portfolio/$', views.portfolio, name='portfolio'),
+    path('nearby',views.nearbylocations, name='nearby_location')
 ]
