@@ -16,6 +16,17 @@ def home(request):
     }
     return render(request,'testApp1/home.html', context)
 
+def portfolio(request):
+    if request.method == 'GET':
+        destination_id = request.GET.get('destination_id')
+        values = Destinations.objects.get(id=destination_id)
+        
+    context = {
+        "values":values,
+    }
+   
+    return render(request,'testApp1/portfolio.html', context)
+
 def nearbylocations(request):
     api_Key = "AIzaSyCWRZPar2BHNZNKEHG4o1kxAJSDZG-BlTc"
     if request.method == 'POST':
@@ -57,4 +68,4 @@ def nearbylocations(request):
     else:
         context = {}
         return render(request,'testApp1/nearby.html', context)
-        
+

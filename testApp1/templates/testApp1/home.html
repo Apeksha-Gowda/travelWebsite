@@ -16,10 +16,11 @@
 <article class="media content-section">
     <div class="media-body">
         <div class="article-metadata">
-            <a class="mr-2" href="#">{{destination.country}}</a>
+            <a class="mr-2" href="/portfolio/?destination_id={{ destination.id }}">{{destination.country}}</a>
             <small class="text-muted">{{ destination.date_posted }}</small>
         </div>
-        <h2><a class="article-title" href="#">{{destination.name}}</a></h2>
+        <h2><a class="article-title" href="/portfolio/?destination_id={{ destination.id }}">{{destination.name}}</a>
+        </h2>
         <p class="article-content">Package : {{destination.package}} with the rating {{destination.rating}} and
             {{destination.image}} </p>
     </div>
