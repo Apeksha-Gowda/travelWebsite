@@ -3,7 +3,19 @@ body {
     color: #333333;
     margin-top: 5rem;
   }
+
+  #bg{
+    background-image: url('images/background_img.jpg');/*{%static "testApp1/images/background_img.jpg"%}*/
+  }
   
+ .web_logo{
+  width: 100px;
+  height: 100px;
+  /* object-fit: cover; */
+  background-image: url('images/logo.png');
+
+}
+
   h1, h2, h3, h4, h5, h6 {
     color: #444444;
   }
