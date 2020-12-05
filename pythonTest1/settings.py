@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Users.apps.UsersConfig',
     'crispy_forms',
     'django_filters',
+    'distance.apps.DistanceConfig'
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'pythonTest1.urls'
+
+GEOIP_PATH = BASE_DIR/'geoip'
 
 TEMPLATES = [
     {
