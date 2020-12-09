@@ -7,7 +7,7 @@ from urllib.parse import urlencode
 
 @login_required
 def home(request):
-    destination = Destinations.objects.all()
+    destination = Destinations.objects.all().order_by("-hits")
     myFilter = DestinationsFilter(request.GET, queryset = destination)
     destination  = myFilter.qs
     context = {
@@ -20,6 +20,10 @@ def portfolio(request):
     if request.method == 'GET':
         destination_id = request.GET.get('destination_id')
         values = Destinations.objects.get(id=destination_id)
+        hitcount = values.hits
+        hitcount = hitcount + 1
+        values.hits = hitcount
+        values.save()
         
     context = {
         "values":values,

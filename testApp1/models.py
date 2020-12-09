@@ -8,6 +8,7 @@ class Destinations(models.Model):
     rating = models.FloatField(default='1')
     image = models.TextField(default='Canada-Montreal')
     date_posted= models.DateTimeField(default=timezone.now)
+    hits = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
