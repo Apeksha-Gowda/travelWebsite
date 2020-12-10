@@ -17,7 +17,7 @@ body {
 } */
 
   h1, h2, h3, h4, h5, h6 {
-    color: #444444;
+    color: #ffffff; /*Changed the color to white so that 'You have been logged out' would be visible clearly*/
   }
   
   ul {
@@ -25,8 +25,15 @@ body {
   }
   
   .bg-steel {
-    background-color: #5f788a;
-  }
+
+    background-color: #C7C7C7;/*#5f788a */
+     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+     font-weight: bold;
+     text-transform: uppercase;
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     height: 50px;
+     /* background-blend-mode: darken; */
+   }
   
   .site-header .navbar-nav .nav-link {
     color: #cbd5db;
@@ -95,3 +102,18 @@ body {
     font-size: 2.5rem;
   }
   
+  .body_right{
+    background-color: #5F3F2B;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2) );
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* border:solid black; */
+    
+  }
+
+  .body_right h3 {
+    color: white;
+  }
+ 
+  .body_right p span{
+   color: white;
+ }
