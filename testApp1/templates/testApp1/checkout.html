@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends "testApp1/base.html" %}
+{% block content %}
+
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{values.country}}</a>
+            <small class="text-muted">{{ values.date_posted }}</small>
+        </div>
+        <h2><a class="article-title" href="#">{{values.name}}</a></h2>
+        <p class="article-content">Package : {{values.package}} with the rating {{values.rating}} and
+            {{values.image}} </p>
+        <h3><a class="article-title" href="#">Details</a></h3>
+        <p class="article-content1"> Base Price {{values.cost}}<br>
+            Discount Percentage : {{discount}}<br>
+            Discount Applied: {{discountAmount}}<br>
+
+            Total amount before taxes :{{price}} <br><br>
+            Tax Amount(15%):{{tax}} <br>
+            Total amount after taxes :{{total}}
+        </p>
+    </div>
+    <form method="POST" action="/checkout/?destination_id={{ values.id }}">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" name="Coupon" required>
+            <button class="btn btn-outline-info" type="submit">Apply Coupon</button>
+
+        </div>
+    </form>
+
+    <form method="POST" action="/confirm">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="email" name="email" required>
+            <button class="btn btn-outline-info" type="submit">Place Order</button>
+
+        </div>
+    
+    </form>
+
+</article>
+{% endblock content %}
