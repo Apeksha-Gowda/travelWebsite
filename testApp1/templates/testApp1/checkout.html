@@ -25,6 +25,12 @@
         {% csrf_token %}
         <div class="form-group">
             <input type="text" name="Coupon" required>
+
+            {% if error is not None %}
+            <br>
+            <span id="error-coupon" style="color:red">{{ error }}</span>
+            {% endif%}
+
             <button class="btn btn-outline-info" type="submit">Apply Coupon</button>
 
         </div>
