@@ -45,15 +45,20 @@ def checkout(request):
     price=values.cost
     discount = 0
     discountAmount = 0
+    errorMessage = None
         
     if request.method == 'POST':
         couponCode = request.POST.get('Coupon')
-        promoCode = Coupons.objects.get(code=couponCode)
-    
-        discount=promoCode.discountPercentage
-        print(discount)
-        discountAmount=(price*discount)/100
-        price=price-discountAmount
+        try:
+            promoCode = Coupons.objects.get(code=couponCode)
+        except:
+            print("Coupon does not exist")
+            errorMessage = "Coupon does not exist"
+        else:
+            discount=promoCode.discountPercentage
+            print(discount)
+            discountAmount=(price*discount)/100
+            price=price-discountAmount
         
 
     tax=(price * 0.15)
@@ -70,6 +75,7 @@ def checkout(request):
     request.session['total'] = total
     
     context = {
+        "error":errorMessage,
         "values":values,
         "price":price,
         "discount":discount,
@@ -166,7 +172,6 @@ def nearbylocations(request):
     else:
         context = {}
         return render(request,'testApp1/nearby.html', context)
-
 
 @login_required
 def deals(request):

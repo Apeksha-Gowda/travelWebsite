@@ -55,22 +55,23 @@
     </div>
     
     {{ map|safe }}
-    
-    <form action="" method="POST" autocomplete="off">
-        {% csrf_token %}
-        {{form|crispy}}
-        <button type="submit" class="btn ">Confirm </button>
-    </form>
-    <br>
-    
-    {% if request.POST and distance is not None %}
-    <script>
-        $(window).on('load', function () {
-            $('#exampleModal').modal('show')
-        })
-    </script>
-    {% endif%}>
-    
-</div>
+
+<form action="" method="POST" autocomplete="off">
+    {% csrf_token %}
+    {{form|crispy}}
+    {% if error is not None %}
+    <span id="error-coupon" style="color:red">{{ error }}</span><br>
+    {% endif%}
+    <button type="submit" class="btn btn-primary">Confirm </button>
+</form>
+<br>
+
+{% if request.POST and distance is not None %}
+<script>
+    $(window).on('load', function () {
+        $('#exampleModal').modal('show')
+    })
+</script>
+{% endif%}
 
 {% endblock content %}

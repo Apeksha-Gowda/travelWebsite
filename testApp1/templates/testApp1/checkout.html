@@ -123,11 +123,17 @@
         </div>
         
     </div>
-    <form method="POST" action="/checkout/?destination_id={{ values.id }}" class="">
+    <form method="POST" action="/checkout/?destination_id={{ values.id }}">
         {% csrf_token %}
-        <div class="form-group coupon-form">
-            <input type="text" name="Coupon" placeholder="Enter Coupon Code" required>
-            <button class="btn " type="submit">Apply Coupon</button>
+        <div class="form-group">
+            <input type="text" name="Coupon" required>
+
+            {% if error is not None %}
+            <br>
+            <span id="error-coupon" style="color:red">{{ error }}</span>
+            {% endif%}
+
+            <button class="btn btn-outline-info" type="submit">Apply Coupon</button>
 
         </div>
     </form>
