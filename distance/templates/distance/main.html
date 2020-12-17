@@ -26,6 +26,9 @@
 <form action="" method="POST" autocomplete="off">
     {% csrf_token %}
     {{form|crispy}}
+    {% if error is not None %}
+    <span id="error-coupon" style="color:red">{{ error }}</span><br>
+    {% endif%}
     <button type="submit" class="btn btn-primary">Confirm </button>
 </form>
 <br>
