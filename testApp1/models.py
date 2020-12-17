@@ -18,3 +18,9 @@ class Destinations(models.Model):
 class Coupons(models.Model):
     code=models.CharField(max_length=100)
     discountPercentage=models.IntegerField(default=0)
+
+class Orders(models.Model):
+    user = models.CharField(max_length=100)
+    destination_id = models.IntegerField(default=0)
+    destination_name = models.CharField(max_length=100)
+    

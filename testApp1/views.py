@@ -59,11 +59,11 @@ def checkout(request):
             print(discount)
             discountAmount=(price*discount)/100
             price=price-discountAmount
-        
 
     tax=(price * 0.15)
     total=price+tax
     print(total)
+    request.session['values_id']= values.id
     request.session['values_name'] = values.name
     request.session['values_country'] = values.country
     request.session['values_package'] = values.package
@@ -88,8 +88,7 @@ def checkout(request):
 
 @login_required
 def sendItineraryEmail(request):
-
-    
+    dest_id = request.session['values_id']
     name = request.session['values_name'] 
     country = request.session['values_country'] 
     package =request.session['values_package'] 
@@ -99,6 +98,10 @@ def sendItineraryEmail(request):
     discountAmount = request.session['discountAmount']
     tax = request.session['tax']
     total = request.session['total'] 
+
+    print(request.user.username)
+    order = Orders(user = request.user.username, destination_id = dest_id, destination_name=name)
+    order.save()
    
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -123,6 +126,8 @@ def sendItineraryEmail(request):
                 )
         email.fail_silently = False
         email.send()
+
+    
 
     context={
     }
