@@ -28,6 +28,7 @@ body {
 
     background-color: #C7C7C7;/*#5f788a */
      background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+    
      font-weight: bold;
      text-transform: uppercase;
      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -49,6 +50,7 @@ body {
   
   .content-section {
     background: #ffffff;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
@@ -57,10 +59,12 @@ body {
   
   .article-title {
     color: #444444;
+     /* transition: .3 ease; */
   }
   
   a.article-title:hover {
     color: #428bca;
+    /* transform: scale(1); */
     text-decoration: none;
   }
   
@@ -90,6 +94,18 @@ body {
     height: 25px;
     vertical-align: middle;
   }
+
+  /*DESTINATION GRID*/
+
+  /* .grid-container {
+    background-color: #428bca;
+  }
+
+  /* .grid-container {
+    display: grid;
+    display: inline;
+    grid-template-columns: auto auto;
+  } */ 
   
   .account-img {
     height: 125px;
@@ -117,3 +133,24 @@ body {
   .body_right p span{
    color: white;
  }
+
+
+ 
+ /*DEALS*/
+
+ /* .wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 'heading heading heading'
+                        'body body body';
+  
+}
+.wrapper div{
+  background-color: blue;
+  padding: 10px;
+  margin: 10px;
+}
+
+.wrapper div:nth-child(odd){
+  background-color: red;
+} */
