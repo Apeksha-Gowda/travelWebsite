@@ -8,5 +8,5 @@ class DestinationsFilter(django_filters.FilterSet):
             'name':['icontains'],
             'country':['icontains'],
             'rating':['icontains'],
-            'image' :['icontains'],
+            #'image' :['icontains'],
         }
