@@ -173,4 +173,7 @@ def nearbylocations(request):
         context = {}
         return render(request,'testApp1/nearby.html', context)
 
-
+@login_required
+def deals(request):
+    context = {}
+    return render(request,'testApp1/deals.html', context)

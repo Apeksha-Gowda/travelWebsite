@@ -6,6 +6,7 @@ class DestinationsFilter(django_filters.FilterSet):
         model = Destinations
         fields = {
             'name':['icontains'],
-        'country':['icontains'],
-        'rating':['icontains'],
+            'country':['icontains'],
+            'rating':['icontains'],
+            'image' :['icontains'],
         }
